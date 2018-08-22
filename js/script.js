@@ -3,6 +3,7 @@ var lastTimeMs = (new Date()).getTime(); // previous scroll time
 var waitTimeMs = 2000; // waiting time between scrolls
 var verse = 0; // current verse
 var muted = 0;
+var toMute;
 
 scrollableElement.addEventListener('wheel', findScrollDirectionOtherBrowsers);
 
@@ -12,6 +13,7 @@ document.addEventListener('keypress', (event) => {
   if (keyName == 'm') {
 	  muted = 1 - muted;
 	  if (muted == 0) { playSound(); }
+	  else { clearTimeout(toMute); }
   }
 });
 
@@ -20,17 +22,24 @@ document.onkeydown = checkKey;
 function checkKey(e) {
     e = e || window.event;
     if (e.keyCode == '38') { // up
-		checkMove(-1);
+		tryMove(-1);
     } else if (e.keyCode == '40') { // down
-		checkMove(1);
+		tryMove(1);
     } else if (e.keyCode == '37') { // left
-		checkMove(-1);
+		tryMove(-1);
     } else if (e.keyCode == '39') { // right
-		checkMove(1);
+		tryMove(1);
+    } else if (e.keyCode == '32'){ // space
+        tryMove(1);
     }
 }
 
-function checkMove(dir) { // dir > 0 up
+//detect click
+document.onclick = function(event) {
+    tryMove(1);
+};
+
+function tryMove(dir) { // dir > 0 down
 	var timeMs = (new Date()).getTime();
 	if (timeMs - lastTimeMs > waitTimeMs) {
 		lastTimeMs = timeMs;
@@ -44,7 +53,7 @@ function playSound() {
 	var audio = new Audio("res/sound/" + soundToPlay + ".wav");
 	audio.play();
 	if (muted == 0) {
-		setTimeout(playSound, Math.floor(Math.random()*5000) + 5000);
+		toMute = setTimeout(playSound, Math.floor(Math.random()*5000) + 5000);
 	}
 }
 
@@ -59,18 +68,19 @@ function findScrollDirectionOtherBrowsers(event){
 	}
 
 	if (delta < 0){ // down
-		checkMove(1);
+		tryMove(1);
 	}else if (delta > 0){ // up
-		checkMove(-1);
+		tryMove(-1);
 	}
 }
 
 function movePage(direction) {
 	if (direction > 0) {
 		//console.log("pged moved DOWn");
-		if (verse == 19) {
-			verse = 0;
-			modifyElements();
+		if (verse == 19) { // the end.
+			//verse = 0;
+			//modifyElements();
+			muted = 1;
 		}
 		else {
 			verse = verse + 1;
@@ -150,26 +160,26 @@ function modifyElements() {
 		
 	} else if (verse == 6) {
 		devourerElem.style.opacity = "0.0";
-		devourerElem.style.top = "62%";
-		devourerElem.style.height = "17.82vw";
-		devourerElem.style.width = "11vw";
+		devourerElem.style.top = "65%";
+		devourerElem.style.height = "22.08vw";
+		devourerElem.style.width = "14vw";
 		mistElem.style.opacity = "1.0";
 		verseElems.forEach(function(obj){obj.style.opacity = 0.0;});
 		verseElems[6].style.opacity = "1.0";
 		
 	} else if (verse == 7) {
 		devourerElem.style.opacity = "0.3";
-		devourerElem.style.top = "62%";
-		devourerElem.style.height = "17.82vw";
-		devourerElem.style.width = "11vw";
+		devourerElem.style.top = "65%";
+		devourerElem.style.height = "22.08vw";
+		devourerElem.style.width = "14vw";
 		mistElem.style.opacity = "1.0";
 		verseElems.forEach(function(obj){obj.style.opacity = 0.0;});
 		verseElems[7].style.opacity = "1.0";
 		
 	} else if (verse == 8) {
 		devourerElem.style.opacity = "0.4";
-		devourerElem.style.top = "62.5%";
-		devourerElem.style.height = "18.63vw";
+		devourerElem.style.top = "65%";
+		devourerElem.style.height = "22.08vw";
 		devourerElem.style.width = "11.5vw";
 		mistElem.style.opacity = "0.95";
 		verseElems.forEach(function(obj){obj.style.opacity = 0.0;});
@@ -177,18 +187,18 @@ function modifyElements() {
 		
 	} else if (verse == 9) {
 		devourerElem.style.opacity = "0.5";
-		devourerElem.style.top = "63%";
-		devourerElem.style.height = "19.44vw";
-		devourerElem.style.width = "12vw";
+		devourerElem.style.top = "65%";
+		devourerElem.style.height = "22.08vw";
+		devourerElem.style.width = "14vw";
 		mistElem.style.opacity = "0.9";
 		verseElems.forEach(function(obj){obj.style.opacity = 0.0;});
 		verseElems[9].style.opacity = "1.0";
 		
 	} else if (verse == 10) {
 		devourerElem.style.opacity = "0.7";
-		devourerElem.style.top = "64%";
-		devourerElem.style.height = "21.06vw";
-		devourerElem.style.width = "13vw";
+		devourerElem.style.top = "65%";
+		devourerElem.style.height = "22.08vw";
+		devourerElem.style.width = "14vw";
 		mistElem.style.opacity = "0.7";
 		verseElems.forEach(function(obj){obj.style.opacity = 0.0;});
 		verseElems[10].style.opacity = "1.0";

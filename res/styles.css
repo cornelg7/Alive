@@ -30,8 +30,9 @@ body, html {
 	top: 62%;
 	left: 72%;
 	z-index: 2;
-	transition-property: opacity, top, height, width;
-    transition-duration: 1s;
+	transition: opacity 1s, top 3s, height 3s, width 3s;
+	/* transition-property: opacity, top, height, width;
+    transition-duration: 1s; */
 }
 
 .devourer img {
@@ -52,7 +53,7 @@ body, html {
     size: cover;
 	
 	transition-property: opacity;
-    transition-duration: 1s;
+    transition-duration: 2s;
 }
 
 .mist img {
