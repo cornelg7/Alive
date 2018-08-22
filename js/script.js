@@ -1,16 +1,51 @@
 var scrollableElement = document.getElementsByTagName("BODY")[0]; // body
 var lastTimeMs = (new Date()).getTime(); // previous scroll time
-var waitTimeMs = 1000; // waiting time between scrolls
+var waitTimeMs = 2000; // waiting time between scrolls
 var verse = 0; // current verse
+var muted = 0;
 
 scrollableElement.addEventListener('wheel', findScrollDirectionOtherBrowsers);
+
+//detect m for mute
+document.addEventListener('keypress', (event) => {
+  const keyName = event.key;
+  if (keyName == 'm') {
+	  muted = 1 - muted;
+	  if (muted == 0) { playSound(); }
+  }
+});
+
+//detect arrows
+document.onkeydown = checkKey;
+function checkKey(e) {
+    e = e || window.event;
+    if (e.keyCode == '38') { // up
+		checkMove(-1);
+    } else if (e.keyCode == '40') { // down
+		checkMove(1);
+    } else if (e.keyCode == '37') { // left
+		checkMove(-1);
+    } else if (e.keyCode == '39') { // right
+		checkMove(1);
+    }
+}
+
+function checkMove(dir) { // dir > 0 up
+	var timeMs = (new Date()).getTime();
+	if (timeMs - lastTimeMs > waitTimeMs) {
+		lastTimeMs = timeMs;
+		movePage(dir);
+	}
+}
 
 playSound();
 function playSound() {
     soundToPlay = Math.floor(Math.random()*7) + 1;
 	var audio = new Audio("res/sound/" + soundToPlay + ".wav");
 	audio.play();
-    setTimeout(playSound, Math.floor(Math.random()*5000) + 5000);
+	if (muted == 0) {
+		setTimeout(playSound, Math.floor(Math.random()*5000) + 5000);
+	}
 }
 
 /*finding scroll direction - stackoverflow, Vasi*/
@@ -23,18 +58,10 @@ function findScrollDirectionOtherBrowsers(event){
 		delta = -1 * event.deltaY;
 	}
 
-	if (delta < 0){
-		var timeMs = (new Date()).getTime();
-		if (timeMs - lastTimeMs > waitTimeMs) {
-			lastTimeMs = timeMs;
-			movePage(1);
-		}
-	}else if (delta > 0){
-		var timeMs = (new Date()).getTime();
-		if (timeMs - lastTimeMs > waitTimeMs) {
-			lastTimeMs = timeMs;
-			movePage(-1);
-		}
+	if (delta < 0){ // down
+		checkMove(1);
+	}else if (delta > 0){ // up
+		checkMove(-1);
 	}
 }
 
