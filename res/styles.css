@@ -1,28 +1,59 @@
 body, html {
-    height: 100%;
-    margin: 0;
+  height: 100%;
+  margin: 0;
 }
 
 @font-face {
-    font-family: myFont;
-    src: url(Yang.otf);
+  font-family: myFont;
+  src: url(Yang.otf);
 }
 
-.bg {
-    background-image: url("bg.jpg");
-
-    height: 100%; 
-	top: 0;
-	left: 0;
-	/* position: fixed; */
-	/* z-index: 1; */
-
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+.my-container {
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.devourer {
+#bg {
+  background-image: url("bg.jpg");
+}
+
+#mist {
+  opacity: 1.0;
+  background-image: url("mist.png");
+	transition: opacity 2s;
+}
+
+#text-container {
+  background-image: url("cont.png");
+	opacity: 0.75;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+#verse-container {
+  display: grid;
+  grid-template-areas: 'v'
+}
+
+.verse {
+  font-family: myFont;
+	color: #afafaf;
+	text-align: center;
+	font-size: 3.5vw;
+  opacity: 0.0;
+  grid-area: v;
+  transition: opacity 2s ease-in-out, font-size 0.5s ease-in-out;
+}
+
+#verse0 {
+  opacity: 1.0;
+}
+
+#devourer {
 	position: fixed;
 	height: 16.2vw;
 	width: 10vw;
@@ -31,77 +62,11 @@ body, html {
 	left: 72%;
 	z-index: 2;
 	transition: opacity 1s, top 3s, height 3s, width 3s;
-	/* transition-property: opacity, top, height, width;
-    transition-duration: 1s; */
 }
 
-.devourer img {
-	max-height: 100%;
-	max-width: 100%;
+@media (max-width: 868px) {
+  .verse {
+    font-size: 4.5vw;
+  }
 }
-
-
-.mist {
-    height: 100%;
-    width: 100%;
-	position: fixed;
-	z-index: 3;
-	
-	opacity: 1.0;
-	
-	position: center;
-    size: cover;
-	
-	transition-property: opacity;
-    transition-duration: 2s;
-}
-
-.mist img {
-	width: 100%;
-	height: 100%;
-}
-
-.verse-container {
-	position: fixed;
-	z-index: 4;
-	width: 50vw;
-	height: 60vw;
-	top: -10%;
-	left: 24%;
-	opacity: 0.75;
-}
-
-.verse-container img {
-	width: 100%;
-	height: 100%;
-}
-
-.centered {
-	font-family: myFont;
-	font-size: 3vw;
-	text-align: center;
-	width: 100%;
-	color: #afafaf;
-    position: absolute;
-	z-index: 5;
-    top: 50%;
-    left: 50%;
-}
-
-.verse0, .verse1, .verse2, .verse3, .verse4, .verse5, .verse6, .verse7, .verse8, .verse9, .verse10, .verse11, .verse12, .verse13, .verse14, .verse15, .verse16, .verse17, .verse18, .verse19 {
-	transition-property: opacity;
-    transition-duration: 2s;
-	transition-timing-function: ease-in-out;
-	position: absolute;
-    transform: translate(-50%, -50%);
-}
-
-.verse0 {
-	opacity: 1.0;
-}
-
-.verse1, .verse2, .verse3, .verse4, .verse5, .verse6, .verse7, .verse8, .verse9, .verse10, .verse11, .verse12, .verse13, .verse14, .verse15, .verse16, .verse17, .verse18, .verse19 {
-	opacity: 0.0;
-}
-
 
