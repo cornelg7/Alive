@@ -17,12 +17,16 @@ body, html {
 
 #bg {
   background-image: url("bg.jpg");
+  display: grid;
+  grid-template-areas: 'e'
 }
 
 #mist {
   opacity: 1.0;
   background-image: url("mist.png");
 	transition: opacity 2s;
+  grid-area: e;
+  z-index: 3;
 }
 
 #text-container {
@@ -32,6 +36,8 @@ body, html {
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
+  grid-area: e;
+  z-index: 4;
 }
 
 #verse-container {
@@ -55,6 +61,7 @@ body, html {
 
 #devourer {
 	position: fixed;
+  z-index: 2;
 	height: 16.2vw;
 	width: 10vw;
 	opacity: 0.0;
@@ -64,9 +71,18 @@ body, html {
 	transition: opacity 1s, top 3s, height 3s, width 3s;
 }
 
+#devourer img {
+  height: 100%;
+}
+
 @media (max-width: 868px) {
   .verse {
     font-size: 4.5vw;
+  }
+  #devourer-container {
+    height: 24.3vw;
+    width: 15vw;
+    top: 63.5%;
   }
 }
 

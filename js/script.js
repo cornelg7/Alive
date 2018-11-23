@@ -1,7 +1,7 @@
 var scrollableElement = document.getElementsByTagName("BODY")[0]; // body
 var lastTimeMs = (new Date()).getTime(); // previous scroll time
 var waitTimeMs = 2000; // waiting time between scrolls
-var verse = 0; // current verse
+var verse = 1; // current verse
 var muted = 0;
 var toMute;
 
@@ -81,6 +81,7 @@ function movePage(direction) {
 			//verse = 0;
 			//modifyElements();
 			muted = 1;
+      window.open("https://www.samaritans.org/");
 		}
 		else {
 			verse = verse + 1;
@@ -166,8 +167,8 @@ function modifyElements() {
 	} else if (verse == 6) {
 		devourerElem.style.opacity = "0.0";
 		devourerElem.style.top = "65%";
-		devourerElem.style.height = "22.08vw";
-		devourerElem.style.width = "14vw";
+		devourerElem.style.height = "32.4vw";
+		devourerElem.style.width = "20vw";
 		mistElem.style.opacity = "1.0";
 		verseElems.forEach(clearVerseElements);
 		verseElems[6].style.opacity = "1.0"; // verseElems[6].style.display="block";
@@ -175,8 +176,8 @@ function modifyElements() {
 	} else if (verse == 7) {
 		devourerElem.style.opacity = "0.3";
 		devourerElem.style.top = "65%";
-		devourerElem.style.height = "22.08vw";
-		devourerElem.style.width = "14vw";
+		devourerElem.style.height = "32.4vw";
+		devourerElem.style.width = "20vw";
 		mistElem.style.opacity = "1.0";
 		verseElems.forEach(clearVerseElements);
 		verseElems[7].style.opacity = "1.0"; // verseElems[7].style.display="block";
@@ -184,7 +185,7 @@ function modifyElements() {
 	} else if (verse == 8) {
 		devourerElem.style.opacity = "0.4";
 		devourerElem.style.top = "65%";
-		devourerElem.style.height = "22.08vw";
+		devourerElem.style.height = "32.4vw";
 		devourerElem.style.width = "11.5vw";
 		mistElem.style.opacity = "0.95";
 		verseElems.forEach(clearVerseElements);
@@ -193,8 +194,8 @@ function modifyElements() {
 	} else if (verse == 9) {
 		devourerElem.style.opacity = "0.5";
 		devourerElem.style.top = "65%";
-		devourerElem.style.height = "22.08vw";
-		devourerElem.style.width = "14vw";
+		devourerElem.style.height = "32.4vw";
+		devourerElem.style.width = "20vw";
 		mistElem.style.opacity = "0.9";
 		verseElems.forEach(clearVerseElements);
 		verseElems[9].style.opacity = "1.0"; // verseElems[9].style.display="block";
@@ -202,8 +203,8 @@ function modifyElements() {
 	} else if (verse == 10) {
 		devourerElem.style.opacity = "0.7";
 		devourerElem.style.top = "65%";
-		devourerElem.style.height = "22.08vw";
-		devourerElem.style.width = "14vw";
+		devourerElem.style.height = "32.4vw";
+		devourerElem.style.width = "20vw";
 		mistElem.style.opacity = "0.7";
 		verseElems.forEach(clearVerseElements);
 		verseElems[10].style.opacity = "1.0"; // verseElems[10].style.display="block";
@@ -211,8 +212,8 @@ function modifyElements() {
 	} else if (verse == 11) {
 		devourerElem.style.opacity = "0.9";
 		devourerElem.style.top = "65%";
-		devourerElem.style.height = "22.08vw";
-		devourerElem.style.width = "14vw";
+		devourerElem.style.height = "32.4vw";
+		devourerElem.style.width = "20vw";
 		mistElem.style.opacity = "0.5";
 		verseElems.forEach(clearVerseElements);
 		verseElems[11].style.opacity = "1.0"; // verseElems[11].style.display="block";
@@ -220,8 +221,8 @@ function modifyElements() {
 	}else if (verse == 12) {
 		devourerElem.style.opacity = "0.9";
 		devourerElem.style.top = "65%";
-		devourerElem.style.height = "22.08vw";
-		devourerElem.style.width = "14vw";
+		devourerElem.style.height = "32.4vw";
+		devourerElem.style.width = "20vw";
 		mistElem.style.opacity = "0.5";
 		verseElems.forEach(clearVerseElements);
 		verseElems[12].style.opacity = "1.0"; // verseElems[12].style.display="block";
@@ -229,8 +230,8 @@ function modifyElements() {
 	} else if (verse == 13) {
 		devourerElem.style.opacity = "0.8";
 		devourerElem.style.top = "65%";
-		devourerElem.style.height = "22.08vw";
-		devourerElem.style.width = "14vw";
+		devourerElem.style.height = "32.4vw";
+		devourerElem.style.width = "20vw";
 		mistElem.style.opacity = "0.5";
 		verseElems.forEach(clearVerseElements);
 		verseElems[13].style.opacity = "1.0"; // verseElems[13].style.display="block";
@@ -238,8 +239,8 @@ function modifyElements() {
 	} else if (verse == 14) {
 		devourerElem.style.opacity = "0.7";
 		devourerElem.style.top = "65%";
-		devourerElem.style.height = "22.08vw";
-		devourerElem.style.width = "14vw";
+		devourerElem.style.height = "32.4vw";
+		devourerElem.style.width = "20vw";
 		mistElem.style.opacity = "0.4";
 		verseElems.forEach(clearVerseElements);
 		verseElems[14].style.opacity = "1.0"; // verseElems[14].style.display="block";
@@ -247,8 +248,8 @@ function modifyElements() {
 	} else if (verse == 15) {
 		devourerElem.style.opacity = "0.5";
 		devourerElem.style.top = "65%";
-		devourerElem.style.height = "22.08vw";
-		devourerElem.style.width = "14vw";
+		devourerElem.style.height = "32.4vw";
+		devourerElem.style.width = "20vw";
 		mistElem.style.opacity = "0.3";
 		verseElems.forEach(clearVerseElements);
 		verseElems[15].style.opacity = "1.0"; // verseElems[15].style.display="block";
@@ -256,8 +257,8 @@ function modifyElements() {
 	} else if (verse == 16) {
 		devourerElem.style.opacity = "0.3";
 		devourerElem.style.top = "65%";
-		devourerElem.style.height = "22.08vw";
-		devourerElem.style.width = "14vw";
+		devourerElem.style.height = "32.4vw";
+		devourerElem.style.width = "20vw";
 		mistElem.style.opacity = "0.2";
 		verseElems.forEach(clearVerseElements);
 		verseElems[16].style.opacity = "1.0"; // verseElems[16].style.display="block";
@@ -265,8 +266,8 @@ function modifyElements() {
 	} else if (verse == 17) {
 		devourerElem.style.opacity = "0.1";
 		devourerElem.style.top = "65%";
-		devourerElem.style.height = "22.08vw";
-		devourerElem.style.width = "14vw";
+		devourerElem.style.height = "32.4vw";
+		devourerElem.style.width = "20vw";
 		mistElem.style.opacity = "0.1";
 		verseElems.forEach(clearVerseElements);
 		verseElems[17].style.opacity = "1.0"; // verseElems[17].style.display="block";
@@ -274,8 +275,8 @@ function modifyElements() {
 	} else if (verse == 18) {
 		devourerElem.style.opacity = "0.0";
 		devourerElem.style.top = "65%";
-		devourerElem.style.height = "22.08vw";
-		devourerElem.style.width = "14vw";
+		devourerElem.style.height = "32.4vw";
+		devourerElem.style.width = "20vw";
 		mistElem.style.opacity = "0.0";
 		verseElems.forEach(clearVerseElements);
 		verseElems[18].style.opacity = "1.0"; // verseElems[18].style.display="block";
@@ -283,12 +284,11 @@ function modifyElements() {
 	} else if (verse == 19) {
 		devourerElem.style.opacity = "0.0";
 		devourerElem.style.top = "65%";
-		devourerElem.style.height = "22.08vw";
-		devourerElem.style.width = "14vw";
+		devourerElem.style.height = "32.4vw";
+		devourerElem.style.width = "20vw";
 		mistElem.style.opacity = "0.0";
 		verseElems.forEach(clearVerseElements);
 		verseElems[19].style.opacity = "1.0"; // verseElems[19].style.display="block";
-		
 	}
 	
 }
